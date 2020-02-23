@@ -52,7 +52,8 @@ class Bazooka(object):
         self.gravShell = 'Files/gravity.jpg'
         self.JoomRCEB6 = open('Files/base64RCE.txt', 'rb').read().splitlines()
         try:
-            self.select = sys.argv[1]
+            self.select = 'bazooka'
+            if len(sys.argv)>1 : self.select = sys.argv[1]
         except:
             self.cls()
             self.print_logo()

