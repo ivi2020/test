@@ -22,3 +22,14 @@ https://raw.githubusercontent.com/ivi2020/test/master/M7/Files/up.php
 https://raw.githubusercontent.com/04x/ICG-AutoExploiterBoT/master/files/up.php
 to:
 https://raw.githubusercontent.com/ivi2020/test/master/bot/up.php
+
+
+https://raw.githubusercontent.com/04x/ICG-AutoExploiterBoT/master/files/OsComPayLoad.php
+to:
+https://raw.githubusercontent.com/ivi2020/test/master/bot/OsComPayLoad.php
+
+
+https://raw.githubusercontent.com/ivi2020/test/master/bot/up.txt
+https://raw.githubusercontent.com/ivi2020/test/master/bot/7Rz3Zujk.txt
+
+

