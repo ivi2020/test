@@ -2312,7 +2312,7 @@ select
 
 @media (min-width:992px)
 {
-    .details
+    .rowsss .details
     {
         width: calc(100% - 580px);
         width: -moz-calc(100% - 580px);
@@ -2323,7 +2323,7 @@ select
 
 @media (min-width:768px) and (max-width:991px)
 {
-    .details
+    .rowsss .details
     {
         width: calc(100% - 480px);
         width: -moz-calc(100% - 480px);
@@ -2334,7 +2334,7 @@ select
 
 @media (max-width:767px)
 {
-    .details
+    .rowsss .details
     {
         width: 100%;
     }
@@ -2342,14 +2342,14 @@ select
 
 @media (min-width:768px)
 {
-    .details
+    .rowsss .details
     {
         margin-left: 10px;
         width: 46%;
     }
 }
 
-.details h1
+.rowsss .details h1
 {
     
     margin-bottom: 5px;
@@ -2384,7 +2384,7 @@ select
 
 @media (max-width:767px)
 {
-    .details h1
+    .rowsss .details h1
     {
           /* position: absolute; */
     /* top: -30px; */
@@ -2397,19 +2397,19 @@ select
     }
 }
 
-.details .logo-marque
+.rowsss .details .logo-marque
 {
     margin-bottom: 5px;
 }
 
-    .details .logo-marque img
+    .rowsss .details .logo-marque img
     {
         cursor: pointer;
     }
 
 @media (max-width:767px)
 {
-    .details .ref
+    .rowsss .details .ref
     {
         position: absolute;
         top: 20px;
@@ -2417,7 +2417,7 @@ select
     }
 }
 
-.details .prices
+.rowsss .details .prices
 {
     margin-top: 15px;
     position: relative;
@@ -2426,25 +2426,25 @@ select
 
 @media (max-width:767px)
 {
-    .details .prices
+    .rowsss .details .prices
     {
         /*text-align: center;*/
     }
 }
 
-.details .prices .pv_reco
+.rowsss .details .prices .pv_reco
 {
     font-size: 13px;
     color: #888;
 }
 
-    .details .prices .pv_reco .striked
+    .rowsss .details .prices .pv_reco .striked
     {
         font-size: 15px;
         position: relative;
     }
 
-        .details .prices .pv_reco .striked::after
+        .rowsss .details .prices .pv_reco .striked::after
         {
             border-bottom: 2px solid #888;
             content: "";
@@ -2454,19 +2454,19 @@ select
             width: 100%;
         }
 
-.details .prices .pv_barre
+.rowsss .details .prices .pv_barre
 {
     font-size: 13px;
     color: #26394c;
 }
 
-    .details .prices .pv_barre .striked
+    .rowsss .details .prices .pv_barre .striked
     {
         font-size: 15px;
         position: relative;
     }
 
-        .details .prices .pv_barre .striked::after
+        .rowsss .details .prices .pv_barre .striked::after
         {
             border-bottom: 2px solid #26394c;
             content: "";
@@ -2476,7 +2476,7 @@ select
             width: 100%;
         }
 
-.details .prices .pv
+.rowsss .details .prices .pv
 {
     font-size: 20px;
     line-height: 24px;
@@ -2484,7 +2484,7 @@ select
     font-weight: bold;
 }
 
-.details .prices .promo
+.rowsss .details .prices .promo
 {
     font-size: 18px;
     color: #d43727;
@@ -2493,12 +2493,12 @@ select
     font-weight: bold;
 }
 
-    .details .prices .promo span
+    .rowsss .details .prices .promo span
     {
         font-size: 22px;
     }
 
-.details .prices .remise
+.rowsss .details .prices .remise
 {
     position: absolute;
     top: 0;
@@ -2511,7 +2511,7 @@ select
     background-color: #d43727;
 }
 
-.details .livr
+.rowsss .details .livr
 {
     color: #26394c;
     font-size: 12px;
@@ -2538,7 +2538,7 @@ select
 
 @media (max-width:767px)
 {
-    .details .livr
+    .rowsss .details .livr
     {
         /*text-align: center;*/
         font-size: 1.0rem;
@@ -2617,12 +2617,12 @@ select
         }
 }
 
-.details .livr .dispo
+.rowsss .details .livr .dispo
 {
     color: #298025;
 }
 
-.details .tailles
+.rowsss .details .tailles
 {
     margin-top: 20px;
     clear: both;
@@ -2630,19 +2630,19 @@ select
 
 @media (max-width:767px)
 {
-    .details .tailles
+    .rowsss .details .tailles
     {
         text-align: center;
     }
 }
 
-.details .tailles .label, .tailles_Allimgs
+.rowsss .details .tailles .label, .tailles_Allimgs
 {
     margin: 10px 0;
     color: #26394c;
 }
 
-    .details .tailles .label span
+    .rowsss .details .tailles .label span
     {
         color: #888;
         font-size: 11px;
@@ -2650,14 +2650,14 @@ select
         cursor: pointer;
     }
 
-.details .tailles ul
+.rowsss .details .tailles ul
 {
     margin: 0 0 10px 0;
     font-size: 13px;
     display: inline-block;
 }
 
-    .details .tailles ul li
+    .rowsss .details .tailles ul li
     {
         float: left;
         width: 58px;
@@ -2669,7 +2669,7 @@ select
         color: #888;
     }
 
-        .details .tailles ul li.active
+        .rowsss .details .tailles ul li.active
         {
             border: 1px solid #26394c;
             color: #26394c;
@@ -2678,13 +2678,13 @@ select
             height: 33px;
         }
 
-            .details .tailles ul li.active:hover, .details .tailles ul li.selected
+            .rowsss .details .tailles ul li.active:hover, .rowsss .details .tailles ul li.selected
             {
                 color: #fff;
                 background: #c12323;
             }
 
-        .details .tailles ul li .icon-disabled
+        .rowsss .details .tailles ul li .icon-disabled
         {
             width: 58px;
             height: 35px;
@@ -2692,21 +2692,21 @@ select
             position: absolute;
         }
 
-.details .taille-indisp
+.rowsss .details .taille-indisp
 {
     margin-top: 5px;
     font-size: 12px;
     color: #d43727;
 }
 
-.details #addcart-bt-wrap .addcart-info
+.rowsss .details #addcart-bt-wrap .addcart-info
 {
     text-align: center;
     margin-top: 5px;
     color: #d43727;
 }
 
-.details #addcart-bt-wrap .addcart-bt
+.rowsss .details #addcart-bt-wrap .addcart-bt
 {
     background: #c12323;
     color: #fff;
@@ -2719,20 +2719,20 @@ select
     margin-top: 15px;
 }
 
-    .details #addcart-bt-wrap .addcart-bt:hover
+    .rowsss .details #addcart-bt-wrap .addcart-bt:hover
     {
         background: #3e102d;
     }
 
 @media (max-width:767px)
 {
-    .details #addcart-bt-wrap .addcart-bt
+    .rowsss .details #addcart-bt-wrap .addcart-bt
     {
         width: 100%;
         font-size: 1.0rem;
     }
 
-    .details .prices .pv
+    .rowsss .details .prices .pv
     {
         font-size: 20px;
         /* line-height: 24px; */
